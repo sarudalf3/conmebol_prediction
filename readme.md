@@ -33,7 +33,7 @@ goles convertidos por las selecciones nacionales pertenecientes a Conmebol. Los 
     |2001-03-28|2002|Ecuador|Brazil|1.0|0.0|
     |2017-10-05|2018|Venezuela|Uruguay|0.0|0.0|
 
-    No es necesaria una limpieza de datos, aunque es necesario determinar los partidos a predecir.
+    No es necesaria una limpieza de datos, aunque es necesario extraer los 11 partidos que aún no se realizan.
 
     |date|World Cup Qualif|Team_home|Team_away|Goals_home|Goals_away|
     |:---:|:---:|:---:|:---:|:---:|:---:|
@@ -73,7 +73,7 @@ goles convertidos por las selecciones nacionales pertenecientes a Conmebol. Los 
     ```
 
     Existen 583 registros (partidos) que van a ser utilizados en la construcción del modelo. 
-    Antes del modelo, vamos a observar detalladamente los goles convertidos en los partidos en el período de análisis.
+    Antes del modelo vamos a analizar detalladamente los goles convertidos en los partidos que se encuentran en el período de análisis.
 
 	||Goals_home|Goals_away|
     |:---:|:---:|:---:|
@@ -86,9 +86,20 @@ goles convertidos por las selecciones nacionales pertenecientes a Conmebol. Los 
     |75%|2.500000|1.000000|
     |max|6.000000|6.000000|   
 
-    Se puede concluir que en promedio el equipo de local convierte más goles que el equipo visitante. El máximo de goles convertidos es 6. Ahora revisamos la 
+    Se puede concluir que en promedio el equipo de local convierte más goles que el equipo visitante. El máximo de goles convertidos es 6. Para mayor detalle se utiliza un gráfico de frecuencias para los goles tanto de visita como de local.
 
-    ![Frecuencia de goles](/img/goals_descriptive.png) 
+    <div class="image_center mb-4 mt-2">
+        <img src="/img/goals_descriptive.png" alt="system device" style="max-width: 100%; max-height: 100%; height: 280px;" />
+    </div>
+
+
+    Se observa que menor a 1 gol, la mayor frecuencia es en los equipos visitantes, mientras que para una cantidad mayor a de 1 gol hay una frecuencia más favorable al equipo local.
+
+    Al ser un valor discreto con mayor frecuencia en los primeros valores y decayendo fuertemente a medida que la cantidad de goles convertidos aumenta, es plausible asumir que estos conllevan una distribución Poisson y mediante estimación de máxima verosimilitud, se estima el parámetro $$\lambda$$ con el promedio de goles convertidos.  
+
+    <div class="image_center mb-4 mt-2">
+        <img src="/img/goals_predictive.png" alt="system device" style="max-width: 100%; max-height: 100%; width: 400px;" />
+    </div>
 
 5. Propuestas 
 
