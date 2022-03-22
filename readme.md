@@ -1,4 +1,4 @@
-## Predicción de los resultados de fútbol para las clasificatorias sudamericanas del mundial de Qatar 2022 
+## Predicción de los resultados de fútbol para las clasificatorias sudamericanas para el mundial de Qatar 2022 
 
 En esta oportunidad, desarrollé una simple solución al problema de predicción de resultados de fútbol modelando los 
 goles convertidos por las selecciones nacionales pertenecientes a Conmebol. Los registros se seleccionaron usando la técnica de Webscrapping y comprenden los resultados entre las clasificatorias para el mundial de Francia 1998 y Qatar 2022.
@@ -92,15 +92,15 @@ goles convertidos por las selecciones nacionales pertenecientes a Conmebol. Los 
         <img src="/img/goals_descriptive.png" alt="system device" style="max-width: 100%; max-height: 100%; height: 280px;" />
     </div>
 
-    Se observa que menor a 1 gol, la mayor frecuencia es en los equipos visitantes, mientras que para una cantidad mayor a de 1 gol hay una frecuencia más favorable al equipo local.
+    Se observa que menor a 2 goles, la mayor frecuencia esta en los equipos visitantes, mientras que para una cantidad mayor a de 1 gol hay una frecuencia más favorable del equipo local.
 
-    Al ser un valor discreto con mayor frecuencia en los primeros valores y decayendo fuertemente a medida que la cantidad de goles convertidos aumenta, es plausible asumir que estos conllevan una distribución Poisson y mediante estimación de máxima verosimilitud, se estima el parámetro $$ \lambda $$ con el promedio de goles convertidos.  
+    Al ser un valor discreto con mayor frecuencia en los primeros valores y decayendo fuertemente a medida que la cantidad de goles convertidos aumenta, es plausible asumir que estos conllevan una distribución Poisson y mediante estimación de máxima verosimilitud, se estima el parámetro $`\lambda`$ con el promedio de goles convertidos.  
 
     <div class="image_center mb-4 mt-2">
         <img src="/img/goals_predictive.png" alt="system device" style="max-width: 100%; max-height: 100%; width: 650px;" />
     </div>
 
-    En el caso de los goles de local es estimó un $$ \lambda=1.68 $$ y para los goles de visita es de $$ \lambda = 0.94 $$.
+    En el caso de los goles de local es estimó un $` \lambda=1.68 `$ y para los goles de visita es de $` \lambda = 0.94 `$.
 
 4. Construcción del modelo
 
