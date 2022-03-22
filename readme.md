@@ -94,13 +94,15 @@ goles convertidos por las selecciones nacionales pertenecientes a Conmebol. Los 
 
     Se observa que menor a 2 goles, la mayor frecuencia esta en los equipos visitantes, mientras que para una cantidad mayor a de 1 gol hay una frecuencia más favorable del equipo local.
 
-    Al ser un valor discreto con mayor frecuencia en los primeros valores y decayendo fuertemente a medida que la cantidad de goles convertidos aumenta, es plausible asumir que estos conllevan una distribución Poisson y mediante estimación de máxima verosimilitud, se estima el parámetro $`\lambda`$ con el promedio de goles convertidos.  
+    Al ser un valor discreto con mayor frecuencia en los primeros valores y decayendo fuertemente a medida que la cantidad de goles convertidos aumenta, es plausible asumir que estos conllevan una distribución Poisson y mediante estimación de máxima verosimilitud, se estima el parámetro ```math \lambda``` con el promedio de goles convertidos.
+
+
 
     <div class="image_center mb-4 mt-2">
         <img src="/img/goals_predictive.png" alt="system device" style="max-width: 100%; max-height: 100%; width: 650px;" />
     </div>
 
-    En el caso de los goles de local es estimó un $` \lambda=1.68 `$ y para los goles de visita es de $` \lambda = 0.94 `$.
+    En el caso de los goles de local es estimó un ```math \lambda=1.68``` y para los goles de visita es de $` \lambda = 0.94 `$.
 
 4. Construcción del modelo
 
@@ -112,12 +114,12 @@ goles convertidos por las selecciones nacionales pertenecientes a Conmebol. Los 
     ```
 
     ```python
-    goals = pd.concat([df[['Team_home','Team_away','Goals_home']].assign(home=1).
+    goals = pd.concat([df[['Team_home','Team_away','Goals_home']].assign(Home=1).
     rename(columns={'Team_home':'Team', 'Team_away':'Opponent','Goals_home':'goals'}), 
-    df[['Team_home','Team_away','Goals_away']].assign(home=0).
+    df[['Team_home','Team_away','Goals_away']].assign(Home=0).
     rename(columns={'Team_away':'Team', 'Team_home':'Opponent','Goals_away':'goals'})])
 
-    poisson_model = smf.glm(formula="goals ~ home + Team + Opponent", 
+    poisson_model = smf.glm(formula="goals ~ Home + Team + Opponent", 
     data=goals,family=sm.families.Poisson()).fit()
     poisson_model.summary()
     >>>
@@ -196,7 +198,9 @@ goles convertidos por las selecciones nacionales pertenecientes a Conmebol. Los 
     ```
 
 7. Conclusión
-<center>
+
+<div align="center">
+
 |Pos|Team|Points|Goals dif|
 |:---|:---:|:---:|:---:|
 |1|Brazil|48|31|
@@ -209,7 +213,8 @@ goles convertidos por las selecciones nacionales pertenecientes a Conmebol. Los 
 |8|Bolivia|15|-14|
 |9|Paraguay|15|-14|
 |10|Venezuela|11|-19|
-</center>
+
+</div>
 
 8. Propuestas de mejora 
 
