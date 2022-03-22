@@ -133,6 +133,7 @@ goles convertidos por las selecciones nacionales pertenecientes a Conmebol. Los 
             Covariance Type:    nonrobust		
                             coef  std err	     z	P>|z|	[0.025	0.975]
     Intercept            -0.2571	0.130	-1.983	0.047	-0.511	-0.003
+    home                  0.5751	0.053	10.787	0.000	 0.471	 0.680
     Team[T.Bolivia]	     -0.2707	0.112	-2.407	0.016	-0.491	-0.050
     Team[T.Brazil]	      0.1975	0.105	 1.880	0.060	-0.008	 0.404
     Team[T.Chile]	     -0.0950	0.106	-0.899	0.369	-0.302	 0.112
@@ -151,7 +152,7 @@ goles convertidos por las selecciones nacionales pertenecientes a Conmebol. Los 
     Opponent[T.Peru]      0.4972	0.124	 4.001	0.000	 0.254	 0.741
     Opponent[T.Uruguay]   0.3353	0.129	 2.600	0.009	 0.083	 0.588
     Opponent[T.Venezuela] 0.7269	0.119	 6.085	0.000	 0.493	 0.961
-    home                  0.5751	0.053	10.787	0.000	 0.471	 0.680
+
     
     ```
 
