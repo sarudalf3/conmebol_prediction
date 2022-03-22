@@ -24,7 +24,7 @@ goles convertidos por las selecciones nacionales pertenecientes a Conmebol. Los 
     ```
     
     <div align="center">
-    
+
     |date|World Cup Qualif|Team_home|Team_away|Goals_home|Goals_away|
     |:---:|:---:|:---:|:---:|:---:|:---:|
     |1997-04-02|1998|Bolivia|Argentina|2.0|1.0|
@@ -54,7 +54,7 @@ goles convertidos por las selecciones nacionales pertenecientes a Conmebol. Los 
     |2022-03-29|2022|Chile|Uruguay|NaN|NaN|
     |2022-03-29|2022|Ecuador|Argentina|NaN|NaN|
 
-    <\div>
+    </div>
 
     El objetivo es predecir estos partidos usando información de los partidos anteriores.
 
@@ -82,6 +82,8 @@ goles convertidos por las selecciones nacionales pertenecientes a Conmebol. Los 
     Existen 583 registros (partidos) que van a ser utilizados en la construcción del modelo. 
     Antes del modelo vamos a analizar detalladamente los goles convertidos en los partidos que se encuentran en el período de análisis.
 
+    <div align="center">
+
 	||Goals_home|Goals_away|
     |:---:|:---:|:---:|
     |count|583.000000|583.000000|
@@ -93,6 +95,8 @@ goles convertidos por las selecciones nacionales pertenecientes a Conmebol. Los 
     |75%|2.500000|1.000000|
     |max|6.000000|6.000000|   
 
+    </div>
+    
     Se puede concluir que en promedio el equipo de local convierte más goles que el equipo visitante. El máximo de goles convertidos es 6. Para mayor detalle se utiliza un gráfico de frecuencias para los goles tanto de visita como de local.
 
     <div class="image_center mb-4 mt-2">
