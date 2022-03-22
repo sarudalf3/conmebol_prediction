@@ -12,7 +12,7 @@ goles convertidos por las selecciones nacionales pertenecientes a Conmebol. Los 
 2. Extracción y limpieza de información
 
     La extracción de información se realizó usando técnicas de Webscrapping. La información se obtuvo de la biblioteca libre *Wikipedia* s para las clasificatorias de los mundiales de [Francia, 1998](https://en.wikipedia.org/wiki/1998_FIFA_World_Cup_qualification_(CONMEBOL)),
-[Korea - Japon, 2002](https://en.wikipedia.org/wiki/2002_FIFA_World_Cup_qualification_(CONMEBOL)), [Alemania, 2006](https://en.wikipedia.org/wiki/2006_FIFA_World_Cup_qualification_(CONMEBOL)), [Sudafrica, 2010](https://en.wikipedia.org/wiki/2010_FIFA_World_Cup_qualification_(CONMEBOL)), [Brazil, 2014](https://en.wikipedia.org/wiki/2014_FIFA_World_Cup_qualification_(CONMEBOL)), (Rusia, 2018)[https://en.wikipedia.org/wiki/2018_FIFA_World_Cup_qualification_(CONMEBOL)] y [Qatar, 2022](https://en.wikipedia.org/wiki/2022_FIFA_World_Cup_qualification_(CONMEBOL)).
+[Korea - Japon, 2002](https://en.wikipedia.org/wiki/2002_FIFA_World_Cup_qualification_(CONMEBOL)), [Alemania, 2006](https://en.wikipedia.org/wiki/2006_FIFA_World_Cup_qualification_(CONMEBOL)), [Sudafrica, 2010](https://en.wikipedia.org/wiki/2010_FIFA_World_Cup_qualification_(CONMEBOL)), [Brazil, 2014](https://en.wikipedia.org/wiki/2014_FIFA_World_Cup_qualification_(CONMEBOL)), [Rusia, 2018](https://en.wikipedia.org/wiki/2018_FIFA_World_Cup_qualification_(CONMEBOL)) y [Qatar, 2022](https://en.wikipedia.org/wiki/2022_FIFA_World_Cup_qualification_(CONMEBOL)).
 
     El script Scrapping_conmebol.py contiene los detalles de la extracción de información y tienen el siguiente formato.
 
@@ -36,7 +36,6 @@ goles convertidos por las selecciones nacionales pertenecientes a Conmebol. Los 
 
     No es necesaria una limpieza de datos, aunque es necesario determinar los partidos que aún no se han realizado.
 
-    <center>
     |date|World Cup Qualif|Team_home|Team_away|Goals_home|Goals_away|
     |:---:|:---:|:---:|:---:|:---:|:---:|
     |2021-09-05|2022|Brazil|Argentina|NaN|NaN|
@@ -50,7 +49,6 @@ goles convertidos por las selecciones nacionales pertenecientes a Conmebol. Los 
     |2022-03-29|2022|Bolivia|Brazil|NaN|NaN|
     |2022-03-29|2022|Chile|Uruguay|NaN|NaN|
     |2022-03-29|2022|Ecuador|Argentina|NaN|NaN|
-    </center>
 
     El objetivo es predecir estos partidos usando información de los partidos anteriores.
 5. Propuestas 
