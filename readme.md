@@ -23,6 +23,7 @@ goles convertidos por las selecciones nacionales pertenecientes a Conmebol. Los 
         database.sample(7)
     ```
     
+    <div align="center">
     |date|World Cup Qualif|Team_home|Team_away|Goals_home|Goals_away|
     |:---:|:---:|:---:|:---:|:---:|:---:|
     |1997-04-02|1998|Bolivia|Argentina|2.0|1.0|
@@ -32,9 +33,10 @@ goles convertidos por las selecciones nacionales pertenecientes a Conmebol. Los 
     |1997-07-20|1998|Bolivia|Uruguay|1.0|0.0|
     |2001-03-28|2002|Ecuador|Brazil|1.0|0.0|
     |2017-10-05|2018|Venezuela|Uruguay|0.0|0.0|
-
+    </div>
     No es necesaria una limpieza de datos, aunque es necesario extraer los 11 partidos que aún no se realizan.
 
+    <div align="center">
     |date|World Cup Qualif|Team_home|Team_away|Goals_home|Goals_away|
     |:---:|:---:|:---:|:---:|:---:|:---:|
     |2021-09-05|2022|Brazil|Argentina|NaN|NaN|
@@ -48,6 +50,7 @@ goles convertidos por las selecciones nacionales pertenecientes a Conmebol. Los 
     |2022-03-29|2022|Bolivia|Brazil|NaN|NaN|
     |2022-03-29|2022|Chile|Uruguay|NaN|NaN|
     |2022-03-29|2022|Ecuador|Argentina|NaN|NaN|
+    <\div>
 
     El objetivo es predecir estos partidos usando información de los partidos anteriores.
 
