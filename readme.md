@@ -7,7 +7,7 @@ goles convertidos por las selecciones nacionales pertenecientes a Conmebol. Los 
 
 1. Introducción
     
-    A días de las últimos partidos de fútbol para las clasificatorias Conmebol para la copa del mundo de Qatar 2022, busqué una técnica sencilla para predecir los partidos de las últimas 2 fechas y el partido pendiente entre Brasil y Argentina. Para este análisis se utilizaron los resultados de todos los partidos clasificatorios desde el mundial de Francia 1998, siendo esta la primera clasificatoria en la que empezó el sistema de partidos de todos contra todos. El foco es modelar los goles convertidos mediante un modelo lineal general generalizado (GLM) asumiendo que tienen una distribución Poisson; usando como variables independientes los equipos Oponentes, la situación de localia y los goles convertidos por los equipos oponentes.  
+    A días de las últimos partidos de fútbol para las clasificatorias Conmebol para la copa del mundo de Qatar 2022, busqué una técnica sencilla para predecir los partidos de las últimas 2 fechas y el partido pendiente entre Brasil y Argentina. Para este análisis se utilizaron los resultados de todos los partidos clasificatorios desde el mundial de Francia 1998, siendo esta la primera clasificatoria en la que empezó el sistema de partidos de todos contra todos. El foco es modelar los goles convertidos mediante un modelo lineal general generalizado (GLM) asumiendo que tienen una distribución Poisson; usando como variables independientesel equipo  los equipos jugadores y la situación de localia .  
 
 2. Extracción y limpieza de información
 
@@ -96,22 +96,25 @@ goles convertidos por las selecciones nacionales pertenecientes a Conmebol. Los 
     |max|6.000000|6.000000|   
 
     </div>
-    
+
     Se puede concluir que en promedio el equipo de local convierte más goles que el equipo visitante. El máximo de goles convertidos es 6. Para mayor detalle se utiliza un gráfico de frecuencias para los goles tanto de visita como de local.
 
+  <div align="center">
     <div class="image_center mb-4 mt-2">
         <img src="/img/goals_descriptive.png" alt="system device" style="max-width: 100%; max-height: 100%; height: 280px;" />
     </div>
-
+  </div>
+  
     Se observa que menor a 2 goles, la mayor frecuencia esta en los equipos visitantes, mientras que para una cantidad mayor a de 1 gol hay una frecuencia más favorable del equipo local.
 
     Al ser un valor discreto con mayor frecuencia en los primeros valores y decayendo fuertemente a medida que la cantidad de goles convertidos aumenta, es plausible asumir que estos conllevan una distribución Poisson y mediante estimación de máxima verosimilitud, se estima el parámetro <img src="https://render.githubusercontent.com/render/math?math=\large \lambda"> con el promedio de goles convertidos.
 
 
-
+   <div align="center">
     <div class="image_center mb-4 mt-2">
         <img src="/img/goals_predictive.png" alt="system device" style="max-width: 100%; max-height: 100%; width: 650px;" />
     </div>
+   </div> 
 
     En el caso de los goles de local es estimó un <img src="https://render.githubusercontent.com/render/math?math=\large \lambda=1.68"> y para los goles de visita es de <img src="https://render.githubusercontent.com/render/math?math=\large \lambda=0.94">.
 
