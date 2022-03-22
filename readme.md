@@ -121,16 +121,16 @@ goles convertidos por las selecciones nacionales pertenecientes a Conmebol. Los 
     data=goals,family=sm.families.Poisson()).fit()
     poisson_model.summary()
     >>>
-    Generalized Linear Model Regression Results
-    Dep. Variable: goals	No. Observations: 1166
-    Model: GLM	            Df Residuals: 1146
-    Model Family: Poisson	Df Model: 19
-    Link Function: Log	    Scale: 1.0000
-    Method: IRLS	        Log-Likelihood: -1640.3
-    Date: Mon, 21 Mar 2022	Deviance: 1319.4
-    Time: 18:21:44	        Pearson chi2: 1.17e+03
-    No. Iterations:	5       Pseudo R-squ. (CS): 0.2221
-    Covariance Type:    nonrobust		
+            Generalized Linear Model Regression Results
+            Dep. Variable: goals	    No. Observations: 1166
+            Model: GLM	                Df Residuals: 1146
+            Model Family: Poisson	    Df Model: 19
+            Link Function: Log	        Scale: 1.0000
+            Method: IRLS	            Log-Likelihood: -1640.3
+            Date: Mon, 21 Mar 2022	    Deviance: 1319.4
+            Time: 18:21:44	            Pearson chi2: 1.17e+03
+            No. Iterations:	5           Pseudo R-squ. (CS): 0.2221
+            Covariance Type:    nonrobust		
                             coef  std err	     z	P>|z|	[0.025	0.975]
     Intercept            -0.2571	0.130	-1.983	0.047	-0.511	-0.003
     Team[T.Bolivia]	     -0.2707	0.112	-2.407	0.016	-0.491	-0.050
