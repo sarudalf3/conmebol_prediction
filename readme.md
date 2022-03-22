@@ -21,6 +21,7 @@ goles convertidos por las selecciones nacionales pertenecientes a Conmebol. Los 
 
     database = scrap.database
     database.sample(7)
+```
 
 |:--:|:--:|:--:|:--:|:--:|:--:|
 |date|World Cup Qualif|Team_home|Team_away|Goals_home|Goals_away|
@@ -31,7 +32,7 @@ goles convertidos por las selecciones nacionales pertenecientes a Conmebol. Los 
 |1997-07-20|1998|Bolivia|Uruguay|1.0|0.0|
 |2001-03-28|2002|Ecuador|Brazil|1.0|0.0|
 |2017-10-05|2018|Venezuela|Uruguay|0.0|0.0|
-```
+
     No es necesariaLa limpieza de datos 
 
 
