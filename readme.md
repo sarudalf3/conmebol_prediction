@@ -12,7 +12,7 @@ goles convertidos por las selecciones nacionales pertenecientes a Conmebol. Los 
 2. Extracción y limpieza de información
 
     La extracción de información se realizó usando técnicas de Webscrapping. La información se obtuvo de la biblioteca libre *Wikipedia* s para las clasificatorias de los mundiales de [Francia, 1998](https://en.wikipedia.org/wiki/1998_FIFA_World_Cup_qualification_(CONMEBOL)),
-[Korea - Japon, 2002](https://en.wikipedia.org/wiki/2002_FIFA_World_Cup_qualification_(CONMEBOL)), [Alemania, 2006](https://en.wikipedia.org/wiki/2006_FIFA_World_Cup_qualification_(CONMEBOL)), [Sudafrica, 2010]https://en.wikipedia.org/wiki/2010_FIFA_World_Cup_qualification_(CONMEBOL)), [Brazil, 2014](https://en.wikipedia.org/wiki/2014_FIFA_World_Cup_qualification_(CONMEBOL)), (Rusia, 2018)[https://en.wikipedia.org/wiki/2018_FIFA_World_Cup_qualification_(CONMEBOL)] y [Qatar, 2022](https://en.wikipedia.org/wiki/2022_FIFA_World_Cup_qualification_(CONMEBOL)).
+[Korea - Japon, 2002](https://en.wikipedia.org/wiki/2002_FIFA_World_Cup_qualification_(CONMEBOL)), [Alemania, 2006](https://en.wikipedia.org/wiki/2006_FIFA_World_Cup_qualification_(CONMEBOL)), [Sudafrica, 2010](https://en.wikipedia.org/wiki/2010_FIFA_World_Cup_qualification_(CONMEBOL)), [Brazil, 2014](https://en.wikipedia.org/wiki/2014_FIFA_World_Cup_qualification_(CONMEBOL)), (Rusia, 2018)[https://en.wikipedia.org/wiki/2018_FIFA_World_Cup_qualification_(CONMEBOL)] y [Qatar, 2022](https://en.wikipedia.org/wiki/2022_FIFA_World_Cup_qualification_(CONMEBOL)).
 
     El script Scrapping_conmebol.py contiene los detalles de la extracción de información y tienen el siguiente formato.
 
@@ -22,14 +22,15 @@ goles convertidos por las selecciones nacionales pertenecientes a Conmebol. Los 
     database = scrap.database
     database.sample(7)
 
-date	World Cup Qualif	Team_home	Team_away	Goals_home	Goals_away
-1997-04-02	1998	Bolivia	Argentina	2.0	1.0
-2009-04-01	2010	Chile	Uruguay	0.0	0.0
-2000-11-15	2002	Paraguay	Peru	5.0	1.0
-2022-03-29	2022	Venezuela	Colombia	NaN	NaN
-1997-07-20	1998	Bolivia	Uruguay	1.0	0.0
-2001-03-28	2002	Ecuador	Brazil	1.0	0.0
-2017-10-05	2018	Venezuela	Uruguay	0.0	0.0
+>>>
+date	    World Cup Qualif	Team_home	Team_away	Goals_home	Goals_away
+1997-04-02	1998	            Bolivia	    Argentina	2.0	        1.0
+2009-04-01	2010	            Chile	    Uruguay	    0.0	        0.0
+2000-11-15	2002	            Paraguay	Peru	    5.0	        1.0
+2022-03-29	2022	            Venezuela	Colombia	NaN	        NaN
+1997-07-20	1998	            Bolivia	    Uruguay	    1.0	        0.0
+2001-03-28	2002	            Ecuador	    Brazil	    1.0	        0.0
+2017-10-05	2018	            Venezuela	Uruguay	    0.0	        0.0
 ```
     No es necesariaLa limpieza de datos 
 
