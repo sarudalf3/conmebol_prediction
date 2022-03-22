@@ -23,8 +23,8 @@ goles convertidos por las selecciones nacionales pertenecientes a Conmebol. Los 
     database.sample(7)
 ```
 
-|:--:|:--:|:--:|:--:|:--:|:--:|
 |date|World Cup Qualif|Team_home|Team_away|Goals_home|Goals_away|
+|:---:|:---:|:---:|:---:|:---:|:---:|
 |1997-04-02|1998|Bolivia|Argentina|2.0|1.0|
 |2009-04-01|2010|Chile|Uruguay|0.0|0.0|
 |2000-11-15|2002|Paraguay|Peru|5.0|1.0|
