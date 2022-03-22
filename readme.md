@@ -56,6 +56,7 @@ goles convertidos por las selecciones nacionales pertenecientes a Conmebol. Los 
     En el conjunto de datos existen 6 variables, y son las siguientes:
 
     ```python
+    >>>
     <class 'pandas.core.frame.DataFrame'>
     Int64Index: 583 entries, 0 to 583
     Data columns (total 6 columns):
@@ -71,7 +72,8 @@ goles convertidos por las selecciones nacionales pertenecientes a Conmebol. Los 
     memory usage: 31.9+ KB
     ```
 
-    Existen 583 registros (partidos) no nulos que van a ser utilizados en la construcción del modelo. Aunque antes, vamos a observar detalladamente los goles convertidos (tanto de local como de visita).
+    Existen 583 registros (partidos) que van a ser utilizados en la construcción del modelo. 
+    Antes del modelo, vamos a observar detalladamente los goles convertidos en los partidos en el período de análisis.
 
 	||Goals_home|Goals_away|
     |:---:|:---:|:---:|
@@ -84,6 +86,9 @@ goles convertidos por las selecciones nacionales pertenecientes a Conmebol. Los 
     |75%|2.500000|1.000000|
     |max|6.000000|6.000000|   
 
+    Se puede concluir que en promedio el equipo de local convierte más goles que el equipo visitante. El máximo de goles convertidos es 6. Ahora revisamos la 
+
+    ![Frecuencia de goles](/img/goals_descriptive.png) 
 
 5. Propuestas 
 
