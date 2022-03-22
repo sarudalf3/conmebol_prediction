@@ -98,7 +98,7 @@ goles convertidos por las selecciones nacionales pertenecientes a Conmebol. Los 
     Al ser un valor discreto con mayor frecuencia en los primeros valores y decayendo fuertemente a medida que la cantidad de goles convertidos aumenta, es plausible asumir que estos conllevan una distribución Poisson y mediante estimación de máxima verosimilitud, se estima el parámetro $$\lambda$$ con el promedio de goles convertidos.  
 
     <div class="image_center mb-4 mt-2">
-        <img src="/img/goals_predictive.png" alt="system device" style="max-width: 100%; max-height: 100%; width: 400px;" />
+        <img src="/img/goals_predictive.png" alt="system device" style="max-width: 100%; max-height: 100%; width: 600px;" />
     </div>
 
 5. Propuestas 
