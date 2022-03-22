@@ -92,15 +92,117 @@ goles convertidos por las selecciones nacionales pertenecientes a Conmebol. Los 
         <img src="/img/goals_descriptive.png" alt="system device" style="max-width: 100%; max-height: 100%; height: 280px;" />
     </div>
 
-
     Se observa que menor a 1 gol, la mayor frecuencia es en los equipos visitantes, mientras que para una cantidad mayor a de 1 gol hay una frecuencia más favorable al equipo local.
 
-    Al ser un valor discreto con mayor frecuencia en los primeros valores y decayendo fuertemente a medida que la cantidad de goles convertidos aumenta, es plausible asumir que estos conllevan una distribución Poisson y mediante estimación de máxima verosimilitud, se estima el parámetro $$\lambda$$ con el promedio de goles convertidos.  
+    Al ser un valor discreto con mayor frecuencia en los primeros valores y decayendo fuertemente a medida que la cantidad de goles convertidos aumenta, es plausible asumir que estos conllevan una distribución Poisson y mediante estimación de máxima verosimilitud, se estima el parámetro $$ \lambda $$ con el promedio de goles convertidos.  
 
     <div class="image_center mb-4 mt-2">
-        <img src="/img/goals_predictive.png" alt="system device" style="max-width: 100%; max-height: 100%; width: 600px;" />
+        <img src="/img/goals_predictive.png" alt="system device" style="max-width: 100%; max-height: 100%; width: 650px;" />
     </div>
 
-5. Propuestas 
+    En el caso de los goles de local es estimó un $$ \lambda=1.68 $$ y para los goles de visita es de $$ \lambda = 0.94 $$.
+
+4. Construcción del modelo
+
+    Para la construcción del modelo 
+
+    ```python
+    import statsmodels.api as sm
+    import statsmodels.formula.api as smf
+    ```
+
+    ```python
+    goals = pd.concat([df[['Team_home','Team_away','Goals_home']].assign(home=1).rename(columns={'Team_home':'Team', 'Team_away':'Opponent',
+    'Goals_home':'goals'}), df[['Team_home','Team_away','Goals_away']].assign(home=0).rename(columns={'Team_away':'Team', 'Team_home':'Opponent',
+    'Goals_away':'goals'})])
+
+    poisson_model = smf.glm(formula="goals ~ home + Team + Opponent", data=goals,family=sm.families.Poisson()).fit()
+    poisson_model.summary()
+    >>>
+    Generalized Linear Model Regression Results
+    Dep. Variable: goals	No. Observations: 1166
+    Model: GLM	            Df Residuals: 1146
+    Model Family: Poisson	Df Model: 19
+    Link Function: Log	    Scale: 1.0000
+    Method: IRLS	        Log-Likelihood: -1640.3
+    Date: Mon, 21 Mar 2022	Deviance: 1319.4
+    Time: 18:21:44	        Pearson chi2: 1.17e+03
+    No. Iterations:	5       Pseudo R-squ. (CS): 0.2221
+    Covariance Type:    nonrobust		
+                            coef  std err	     z	P>|z|	[0.025	0.975]
+    Intercept	         -0.2571	0.130	-1.983	0.047	-0.511	-0.003
+    Team[T.Bolivia]	     -0.2707	0.112	-2.407	0.016	-0.491	-0.050
+    Team[T.Brazil]	      0.1975	0.105	 1.880	0.060	-0.008	 0.404
+    Team[T.Chile]	     -0.0950	0.106	-0.899	0.369	-0.302	 0.112
+    Team[T.Colombia]     -0.2866	0.110	-2.597	0.009	-0.503	-0.070
+    Team[T.Ecuador]	     -0.1685	0.107	-1.572	0.116	-0.379	 0.042
+    Team[T.Paraguay]     -0.2856	0.111	-2.571	0.010	-0.503	-0.068
+    Team[T.Peru]	     -0.3964	0.115	-3.435	0.001	-0.623	-0.170
+    Team[T.Uruguay]	     -0.1424	0.107	-1.334	0.182	-0.352	 0.067
+    Team[T.Venezuela]    -0.4407	0.118	-3.733	0.000	-0.672	-0.209
+    Opponent[T.Bolivia]	  0.7567	0.119	 6.338	0.000	 0.523	 0.991
+    Opponent[T.Brazil]	 -0.2042	0.162	-1.260	0.208	-0.522	 0.113
+    Opponent[T.Chile]	  0.4241	0.127	 3.339	0.001	 0.175	 0.673
+    Opponent[T.Colombia]  0.0572	0.136	 0.420	0.675	-0.210	 0.324
+    Opponent[T.Ecuador]	  0.3121	0.129	 2.413	0.016	 0.059	 0.566
+    Opponent[T.Paraguay]  0.3568	0.128	 2.790	0.005	 0.106	 0.607
+    Opponent[T.Peru]	  0.4972	0.124	 4.001	0.000	 0.254	 0.741
+    Opponent[T.Uruguay]	  0.3353	0.129	 2.600	0.009	 0.083	 0.588
+    Opponent[T.Venezuela] 0.7269	0.119	 6.085	0.000	 0.493	 0.961
+    home	              0.5751	0.053	10.787	0.000	 0.471	 0.680
+    ```
+
+6. Predicción
+
+    ```python
+    def match_results(Team, Opponent):
+        home_res = np.round(poisson_model.predict(pd.DataFrame(data={'Team': Team, 'Opponent': Opponent,'home':1},index=[1])),0)
+        away_res = np.round(poisson_model.predict(pd.DataFrame(data={'Team': Opponent, 'Opponent': Team,'home':0},index=[1])),0)
+        database.loc[(database.Team_home==Team)&(database.Team_away==Opponent)&(database.index.isin(index_na)),'Goals_home'] = home_res.values
+        database.loc[(database.Team_home==Team)&(database.Team_away==Opponent)&(database.index.isin(index_na)),'Goals_away'] = away_res.values  
+        return print(f'{Team} {home_res.values[0]:.0f} - {away_res.values[0]:.0f} {Opponent}')
+
+    match_results('Brazil', 'Argentina')
+    match_results('Uruguay', 'Peru')
+    match_results('Colombia', 'Bolivia')
+    match_results('Brazil', 'Chile')
+    match_results('Paraguay', 'Ecuador')
+    match_results('Argentina', 'Venezuela')
+    match_results('Peru', 'Paraguay')
+    match_results('Venezuela', 'Colombia')
+    match_results('Bolivia', 'Brazil')
+    match_results('Chile', 'Uruguay')
+    match_results('Ecuador', 'Argentina')    
+
+    >>>
+    Brazil 2 - 1 Argentina
+    Uruguay 2 - 1 Peru
+    Colombia 2 - 1 Bolivia
+    Brazil 3 - 1 Chile
+    Paraguay 1 - 1 Ecuador
+    Argentina 3 - 0 Venezuela
+    Peru 1 - 1 Paraguay
+    Venezuela 1 - 1 Colombia
+    Bolivia 1 - 2 Brazil
+    Chile 2 - 1 Uruguay
+    Ecuador 1 - 1 Argentina
+    ```
+
+7. Conclusión
+
+|Pos|Team|Points|Goals dif|
+|:---|:---:|:---:|:---:|
+|1|Brazil|48|31|
+|2|Argentina|39|18|
+|3|Ecuador|27|10|
+|4|Uruguay|25|-3|
+|5|Chile|22|-2|
+|6|Peru|22|-5|
+|7|Colombia|21|-2|
+|8|Bolivia|15|-14|
+|9|Paraguay|15|-14|
+|10|Venezuela|11|-19|
+
+8. Propuestas de mejora 
 
     Una alternativa de análisis es dar mayor importancia a los registros más actuales, ponderando pesos mayores a los partidos de la actual clasificatoria y menos importancia a los partidos más antiguos. 
