@@ -16,43 +16,43 @@ goles convertidos por las selecciones nacionales pertenecientes a Conmebol. Los 
 
     El script Scrapping_conmebol.py contiene los detalles de la extracción de información y tienen el siguiente formato.
 
-```python
-    import Scrapping_conmebol as scrap
+    ```python
+        import Scrapping_conmebol as scrap
 
-    database = scrap.database
-    database.sample(7)
-```
-<center>
-|date|World Cup Qualif|Team_home|Team_away|Goals_home|Goals_away|
-|:---:|:---:|:---:|:---:|:---:|:---:|
-|1997-04-02|1998|Bolivia|Argentina|2.0|1.0|
-|2009-04-01|2010|Chile|Uruguay|0.0|0.0|
-|2000-11-15|2002|Paraguay|Peru|5.0|1.0|
-|2022-03-29|2022|Venezuela|Colombia|NaN|NaN|
-|1997-07-20|1998|Bolivia|Uruguay|1.0|0.0|
-|2001-03-28|2002|Ecuador|Brazil|1.0|0.0|
-|2017-10-05|2018|Venezuela|Uruguay|0.0|0.0|
-</center>
+        database = scrap.database
+        database.sample(7)
+    ```
+    <center>
+    |date|World Cup Qualif|Team_home|Team_away|Goals_home|Goals_away|
+    |:---:|:---:|:---:|:---:|:---:|:---:|
+    |1997-04-02|1998|Bolivia|Argentina|2.0|1.0|
+    |2009-04-01|2010|Chile|Uruguay|0.0|0.0|
+    |2000-11-15|2002|Paraguay|Peru|5.0|1.0|
+    |2022-03-29|2022|Venezuela|Colombia|NaN|NaN|
+    |1997-07-20|1998|Bolivia|Uruguay|1.0|0.0|
+    |2001-03-28|2002|Ecuador|Brazil|1.0|0.0|
+    |2017-10-05|2018|Venezuela|Uruguay|0.0|0.0|
+    </center>
 
-No es necesaria una limpieza de datos, aunque es necesario determinar los partidos que aún no se han realizado.
+    No es necesaria una limpieza de datos, aunque es necesario determinar los partidos que aún no se han realizado.
 
-<center>
-|date|World Cup Qualif|Team_home|Team_away|Goals_home|Goals_away|
-|:---:|:---:|:---:|:---:|:---:|:---:|
-|2021-09-05|2022|Brazil|Argentina|NaN|NaN|
-|2022-03-24|2022|Uruguay|Peru|NaN|NaN|
-|2022-03-24|2022|Colombia|Bolivia|NaN|NaN|
-|2022-03-24|2022|Brazil|Chile|NaN|NaN|
-|2022-03-24|2022|Paraguay|Ecuador|NaN|NaN|
-|2022-03-25|2022|Argentina|Venezuela|NaN|NaN|
-|2022-03-29|2022|Peru|Paraguay|NaN|NaN|
-|2022-03-29|2022|Venezuela|Colombia|NaN|NaN|
-|2022-03-29|2022|Bolivia|Brazil|NaN|NaN|
-|2022-03-29|2022|Chile|Uruguay|NaN|NaN|
-|2022-03-29|2022|Ecuador|Argentina|NaN|NaN|
-</center>
+    <center>
+    |date|World Cup Qualif|Team_home|Team_away|Goals_home|Goals_away|
+    |:---:|:---:|:---:|:---:|:---:|:---:|
+    |2021-09-05|2022|Brazil|Argentina|NaN|NaN|
+    |2022-03-24|2022|Uruguay|Peru|NaN|NaN|
+    |2022-03-24|2022|Colombia|Bolivia|NaN|NaN|
+    |2022-03-24|2022|Brazil|Chile|NaN|NaN|
+    |2022-03-24|2022|Paraguay|Ecuador|NaN|NaN|
+    |2022-03-25|2022|Argentina|Venezuela|NaN|NaN|
+    |2022-03-29|2022|Peru|Paraguay|NaN|NaN|
+    |2022-03-29|2022|Venezuela|Colombia|NaN|NaN|
+    |2022-03-29|2022|Bolivia|Brazil|NaN|NaN|
+    |2022-03-29|2022|Chile|Uruguay|NaN|NaN|
+    |2022-03-29|2022|Ecuador|Argentina|NaN|NaN|
+    </center>
 
-
+    El objetivo es predecir estos partidos usando información de los partidos anteriores.
 5. Propuestas 
 
     Una alternativa de análisis es dar mayor importancia a los registros más actuales, ponderando pesos mayores a los partidos de la actual clasificatoria y menos importancia a los partidos más antiguos. 
