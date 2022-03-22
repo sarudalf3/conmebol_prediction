@@ -102,7 +102,7 @@ goles convertidos por las selecciones nacionales pertenecientes a Conmebol. Los 
         <img src="/img/goals_predictive.png" alt="system device" style="max-width: 100%; max-height: 100%; width: 650px;" />
     </div>
 
-    En el caso de los goles de local es estimó un <img src="https://render.githubusercontent.com/render/math?math= \large \lambda = 1.68"> y para los goles de visita es de <img src="https://render.githubusercontent.com/render/math?math=\LARGE \lambda=0.94">.
+    En el caso de los goles de local es estimó un <img src="https://render.githubusercontent.com/render/math?math=\large \lambda=1.68"> y para los goles de visita es de <img src="https://render.githubusercontent.com/render/math?math=\LARGE \lambda=0.94">.
 
 4. Construcción del modelo
 
