@@ -32,7 +32,7 @@ goles convertidos por las selecciones nacionales pertenecientes a Conmebol. Los 
 |1997-07-20|1998|Bolivia|Uruguay|1.0|0.0|
 |2001-03-28|2002|Ecuador|Brazil|1.0|0.0|
 |2017-10-05|2018|Venezuela|Uruguay|0.0|0.0|
-<\center>
+</center>
 
 No es necesaria una limpieza de datos, aunque es necesario determinar los partidos que aún no se han realizado.
 
@@ -50,7 +50,7 @@ No es necesaria una limpieza de datos, aunque es necesario determinar los partid
 |2022-03-29|2022|Bolivia|Brazil|NaN|NaN|
 |2022-03-29|2022|Chile|Uruguay|NaN|NaN|
 |2022-03-29|2022|Ecuador|Argentina|NaN|NaN|
-<\center>
+</center>
 
 
 5. Propuestas 
