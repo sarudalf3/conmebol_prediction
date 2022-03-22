@@ -94,7 +94,7 @@ goles convertidos por las selecciones nacionales pertenecientes a Conmebol. Los 
 
     Se observa que menor a 2 goles, la mayor frecuencia esta en los equipos visitantes, mientras que para una cantidad mayor a de 1 gol hay una frecuencia más favorable del equipo local.
 
-    Al ser un valor discreto con mayor frecuencia en los primeros valores y decayendo fuertemente a medida que la cantidad de goles convertidos aumenta, es plausible asumir que estos conllevan una distribución Poisson y mediante estimación de máxima verosimilitud, se estima el parámetro ```math \lambda``` con el promedio de goles convertidos.
+    Al ser un valor discreto con mayor frecuencia en los primeros valores y decayendo fuertemente a medida que la cantidad de goles convertidos aumenta, es plausible asumir que estos conllevan una distribución Poisson y mediante estimación de máxima verosimilitud, se estima el parámetro <img src="https://render.githubusercontent.com/render/math?math=\lambda"> con el promedio de goles convertidos.
 
 
 
@@ -120,10 +120,11 @@ goles convertidos por las selecciones nacionales pertenecientes a Conmebol. Los 
     rename(columns={'Team_away':'Team', 'Team_home':'Opponent','Goals_away':'goals'})])
 
     poisson_model = smf.glm(formula="goals ~ Home + Team + Opponent", 
-    data=goals,family=sm.families.Poisson()).fit()
+        data=goals, family=sm.families.Poisson()).fit()
     poisson_model.summary()
+
     >>>
-            Generalized Linear Model Regression Results
+               Generalized Linear Model Regression Results
             Dep. Variable: goals	    No. Observations: 1166
             Model: GLM	                Df Residuals: 1146
             Model Family: Poisson	    Df Model: 19
@@ -133,6 +134,7 @@ goles convertidos por las selecciones nacionales pertenecientes a Conmebol. Los 
             Time: 18:21:44	            Pearson chi2: 1.17e+03
             No. Iterations:	5           Pseudo R-squ. (CS): 0.2221
             Covariance Type:    nonrobust		
+
                             coef  std err	     z	P>|z|	[0.025	0.975]
     Intercept            -0.2571	0.130	-1.983	0.047	-0.511	-0.003
     Home                  0.5751	0.053	10.787	0.000	 0.471	 0.680
